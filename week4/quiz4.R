@@ -6,22 +6,22 @@ strsplit(names(data)[123], "wgtp")
 # [[1]]
 # [1] ""   "15"
 # Problem 2.
-gdp_data <- read.csv("./data/gdp.csv")
-cleaned_data <- gsub(",", "", gdp_data[5:194, 5])
-num_data <- as.numeric(cleaned_data)
-mean(num_data) 
+gdpData <- read.csv("./data/gdp.csv")
+cleanedData <- gsub(",", "", gdpData[5:194, 5])
+numData <- as.numeric(cleanedData)
+mean(numData) 
 # [1] 377652.4
 # Problem 3.
-countryNames <- gdp_data[5:194,4]
+countryNames <- gdpData[5:194,4]
 regexec("^United", countryNames)
 # 3
 # Problem 4. 
-new_gdp_data <- gdp_data[6:194, c(1, 2, 4, 5)]
-colnames(new_gdp_data) <- c("CountryCode", "Ranking", "Economy", "GDP")
-rownames(new_gdp_data) <- NULL # renumbering
-education_data <- read.csv("./data/education.csv")
-names(education_data)
-mergedData <- merge(new_gdp_data, education_data, by.x="CountryCode", by.y="CountryCode", all=TRUE)
+newGdpData <- gdpData[6:194, c(1, 2, 4, 5)]
+colnames(newGdpData) <- c("CountryCode", "Ranking", "Economy", "GDP")
+rownames(newGdpData) <- NULL # renumbering
+educationData <- read.csv("./data/education.csv")
+names(educationData)
+mergedData <- merge(newGdpData, educationData, by.x="CountryCode", by.y="CountryCode", all=TRUE)
 head(mergedData)
 names(mergedData) <- tolower(names(mergedData))
 a <- as.character(mergedData[,13])
