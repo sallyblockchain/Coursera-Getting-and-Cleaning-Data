@@ -30,6 +30,7 @@ names(joinData) <- gsub("\\(\\)", "", features[meanStdIndices, 2]) # remove "()"
 names(joinData) <- gsub("mean", "Mean", names(joinData)) # capitalize M
 names(joinData) <- gsub("std", "Std", names(joinData)) # capitalize S
 names(joinData) <- gsub("-", "", names(joinData)) # remove "-" in column names 
+
 # Step3. Uses descriptive activity names to name the activities in 
 # the data set
 activity <- read.table("./data/activity_labels.txt")
@@ -68,4 +69,3 @@ for(i in 1:subjectLen) {
 }
 head(result)
 write.table(result, "data_with_means.txt") # write out the 2nd dataset
-
